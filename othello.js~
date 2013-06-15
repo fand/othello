@@ -1,0 +1,10 @@
+function Battle(){
+    opening();
+    while(){
+	turn();
+    }
+
+    
+
+
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<head>
+<title>audio test!</title>
+<script> 
+
+    
+  function audioPlay(){
+  document.getElementById("audio").play();
+  }
+  
+  function audioPause(){
+  document.getElementById("audio").pause();
+  }
+  
+</script>
+</head>
+<body>
+  <audio id="audio">
+    <source src="bgm/title.mp3" type="audio/mp3">
+  </audio>
+
+  <div id="button1" style="margin:30px;padding:30px;background-color:#f55" onClick="audioPlay()">
+    hello
+  </div>
+
+  <div id="button2" style="margin:30px;padding:30px;background-color:#55f" onClick="audioPause()">
+    bye
+  </div>
+  
+
+</body>
