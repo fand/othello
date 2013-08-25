@@ -99,25 +99,25 @@ player_list = [
 mode,
 currentState = "title";
 
-left = {
+var left = {
     character: "bo",
     color : "black",
     score : 0,
     power : 0
-},
-right = {
+};
+var right = {
     character : "bo",
     color : "",
     score : 0,
     power : 0
-},
+};
 
 
-left.character = player_list[0].name,
-right.character = player_list[0].name,
+left.character = player_list[0].name;
+right.character = player_list[0].name;
 
 
-firsthand = 0,         // 先攻はどっちか.0なら左、1なら右
+var firsthand = 0,         // 先攻はどっちか.0なら左、1なら右
 history = new Array(),
 isBacked = true,
 
@@ -126,7 +126,7 @@ cpu_turn = 1,                   // CPUはどっちか。0なら黒
 cpu_color = "white",
 cpu_character = 0;
 
-stateManager = {
+var stateManager = {
 
 	vs_human : function() {
 		mode = "human";
@@ -164,7 +164,7 @@ stateManager = {
             if(board[i]=="empty"){
                 $("#"+cell_name[i]).empty().removeClass("playable");
             }else if(board[i]!="wall"){
-                $("#"+cell_name[i]).html("<img class='stone' src='"+ board[i] +".png' alt=''>");
+                $("#"+cell_name[i]).html("<img class='stone' src='image/"+ board[i] +".png' alt=''>");
             }
         }
         $("#undo").css("top","-1000px");
@@ -262,15 +262,15 @@ function showSelect() {
     $("#firsthand_button").click(function(){
         if(firsthand==0){
             firsthand=1;
-            $(this).empty().html("<img src='firsthand_right.png'>");
+            $(this).empty().html("<img src='image/firsthand_right.png'>");
 
         }else if(firsthand==1){
             firsthand=2;
-            $(this).empty().html("<img src='firsthand_random.png'>");
+            $(this).empty().html("<img src='image/firsthand_random.png'>");
 
         }else{
             firsthand=0;
-            $(this).empty().html("<img src='firsthand_left.png'>");
+            $(this).empty().html("<img src='image/firsthand_left.png'>");
 
         }
         $(this).css("height","0px").delay(30).animate({
@@ -382,14 +382,13 @@ function hideMenu(){
 }
 
 
-
-
-
-
-
-
 //終了フラグ、判定勝ちフラグ、何ターン目か、残り打てるマス数、今どっちのターンか。
-var finish=false,deadlock=false,time=0,	rest=0, currentColor = "black";
+var finish=false,
+    deadlock=false,
+    time=0,
+    rest=0,
+    currentColor = "black";
+
 
 function drawBoard() {
 	//どっちのターンか調べる
@@ -485,12 +484,12 @@ function turn() {
         setTimeout(function(){
             $(".playable").unbind();
             
-            var target = cpuPlay();    
+            var target = cpuPlay();
             
             // ボードの保存
             board_last = board.concat();
             
-		    $("#"+target).append("<img class='stone' src='"+currentColor+".png' alt=''>");
+		    $("#"+target).append("<img class='stone' src='image/"+currentColor+".png' alt=''>");
             board[cell_address[target]] = currentColor;
 		    $(".playable").each(function(){
 			    $(this).unbind().removeClass("playable");
@@ -536,7 +535,7 @@ function turn() {
             // ボードの保存
             board_last = board.concat();
             
-		    $(this).append("<img class='stone' src='"+currentColor+".png' alt=''>");
+		    $(this).append("<img class='stone' src='image/"+currentColor+".png' alt=''>");
 		    $(".playable").each(function(){
 			    $(this).unbind().removeClass("playable");
 		    });
@@ -638,7 +637,7 @@ function flip_line(env, index, dir, color, flag_env, flag_html){
         		env[target] = color;
             }
             if(flag_html){
-        		$("#"+cell_name[target]).empty().append("<img class='stone' src='"+color+".png' alt=''>")
+        		$("#"+cell_name[target]).empty().append("<img class='stone' src='image/"+color+".png' alt=''>")
                     .contents().each(function(){
                         $(this).css("width","0px").delay(20).animate({
                             width:"40px"
@@ -720,10 +719,10 @@ function initializeBoard(){
 	board[cell_address["d5"]]="black";
 	board[cell_address["e5"]]="white";
 	
-	$("#d4").append("<img class='stone' src='white.png' alt=''>");
-	$("#e4").append("<img class='stone' src='black.png' alt=''>");
-	$("#d5").append("<img class='stone' src='black.png' alt=''>");
-	$("#e5").append("<img class='stone' src='white.png' alt=''>");
+	$("#d4").append("<img class='stone' src='image/white.png' alt=''>");
+	$("#e4").append("<img class='stone' src='image/black.png' alt=''>");
+	$("#d5").append("<img class='stone' src='image/black.png' alt=''>");
+	$("#e5").append("<img class='stone' src='image/white.png' alt=''>");
 
 
     time=0;
@@ -742,17 +741,4 @@ function isCpuTurn(){
         else return true;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

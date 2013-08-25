@@ -3,6 +3,7 @@
   <head>
 	<meta charset="utf-8" />
 	<title>othello</title>
+	<link rel="stylesheet" href="css/othello.css" type="text/css">    
 	<link rel="stylesheet" href="css/view.css" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Chau+Philomene+One:400,400italic|Oleo+Script" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet" type="text/css">
@@ -18,39 +19,39 @@
 	<div id="wrapper">
 
 	  <div id="title">
-		<img id="title_bg" src="title_bg.png" alt="">
-		<img class="button" id="vs_human" src="vs_human.png" alt="">
-		<img class="button" id="vs_cpu" src="vs_cpu.png" alt="">
+		<img id="title_bg" src="image/title_bg.png" alt="">
+		<img class="button" id="vs_human" src="image/vs_human.png" alt="">
+		<img class="button" id="vs_cpu" src="image/vs_cpu.png" alt="">
 	  </div>
 
       
 	  <div id="select">
-		<img id="bg_select" src="bg_select.png" alt="">
-		<img id="message_select" src="message_select.png" alt="">
+		<img id="bg_select" src="image/bg_select.png" alt="">
+		<img id="message_select" src="image/message_select.png" alt="">
 
 		<div id="stand_left">
-		  <img id="stand_bo" src="stand_bo.png" alt="">
+		  <img id="stand_bo" src="image/stand_bo.png" alt="">
 		</div>
         <div id="left_label"></div>
-        <img id="left_1p" src="left_1p.png" alt="">
-        <img id="left_you" src="left_you.png" alt="">
+        <!-- <img id="left_1p" src="image/left_1p.png" alt=""> -->
+        <!-- <img id="left_you" src="image/left_you.png" alt=""> -->
         
 		<div id="stand_right">
-		  <img id="stand_bo" src="stand_bo.png" alt="">
+		  <img id="stand_bo" src="image/stand_bo.png" alt="">
 		</div>
         <div id="right_label"></div>
-        <img id="right_2p" src="right_2p.png" alt="">
-        <img id="right_cpu" src="right_cpu.png" alt="">
+        <!-- <img id="right_2p" src="image/right_2p.png" alt=""> -->
+        <!-- <img id="right_cpu" src="image/right_cpu.png" alt=""> -->
 
         <div id="firsthand_button">
-          <img src="firsthand_left.png">
+          <img src="image/firsthand_left.png">
         </div>
-		<img class="button" id="to_battle" src="to_battle.png" alt="">
+		<img class="button" id="to_battle" src="image/to_battle.png" alt="">
 	  </div>
 
       
 	  <div id="board">
-		<img id="bg_battle" src="bg_battle.png" alt="">
+		<img id="bg_battle" src="image/bg_battle.png" alt="">
 		<table>
 		  <tr>
 			<td class="wall"></td><td class="wall">A</td><td class="wall">B</td><td class="wall">C</td><td class="wall">D</td><td class="wall">E</td><td class="wall">F</td><td class="wall">G</td><td class="wall">H</td><td class="wall"></td>
@@ -89,29 +90,29 @@
       
 	  <div id="status">
 		<div id="status_left">
-		  <img id="status_left_bg" src="status_bg.png" alt="">
-		  <img id="status_left_face" src="bo_face.png" alt="">
+		  <img id="status_left_bg" src="image/status_bg.png" alt="">
+		  <img id="status_left_face" src="image/bo_face.png" alt="">
           <div id="color_left"></div>
           <span id="player_left"></span>
           <span id="score_left">0</span>
 		</div>
 
 		<div id="status_right">
-		  <img id="status_right_bg" src="status_bg.png" alt="">
-		  <img id="status_right_face" src="bo_face.png" alt="">
+		  <img id="status_right_bg" src="image/status_bg.png" alt="">
+		  <img id="status_right_face" src="image/bo_face.png" alt="">
           <div id="color_right"></div>
           <span id="player_right"></span>
           <span id="score_right">0</span>
 		</div>
 
-		<img id="gauge_left" src="gauge_back.png" alt="">
-        <img id="gauge_fill_left" src="gauge_fill_red.png" alt="">
-		<img id="gauge_right" src="gauge_back.png" alt="">
-        <img id="gauge_fill_right" src="gauge_fill_red.png" alt="">
+		<img id="gauge_left" src="image/gauge_back.png" alt="">
+        <img id="gauge_fill_left" src="image/gauge_fill_red.png" alt="">
+		<img id="gauge_right" src="image/gauge_back.png" alt="">
+        <img id="gauge_fill_right" src="image/gauge_fill_red.png" alt="">
 	  </div>
 
       
-	  <img id="menu_button" src="menu_button.png" alt="">
+	  <img id="menu_button" src="image/menu_button.png" alt="">
 	  <div id="menu">
         <div id="menu_inner">
           History!
@@ -124,10 +125,10 @@
 
 	  
 	  <div id="sign">
-		<img id="sign_ready" src="ready.png" alt="">
-		<img id="sign_go" src="go.png" alt="">
-		<img id="sign_ko" src="ko.png" alt="">
-		<img id="sign_draw" src="draw.png" alt="">
+		<img id="sign_ready" src="image/ready.png" alt="">
+		<img id="sign_go" src="image/go.png" alt="">
+		<img id="sign_ko" src="image/ko.png" alt="">
+		<img id="sign_draw" src="image/draw.png" alt="">
 	  </div>
 
       
@@ -142,14 +143,14 @@
 	</div>
 	<!-- wrapper end -->
 
-
+    <!--
     <audio>
       <source src="bgm/title.mp3" type="audio/mp3">
     </audio>
     <audio>
       <source src="bgm/se.mp3" type="audio/mp3">
     </audio>
-
+    -->
     
     <script src="js/jquery-1.7.2.js"></script>
 	<script src="js/jquery.easing.1.3.js"></script>
