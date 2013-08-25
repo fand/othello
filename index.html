@@ -1,161 +1,160 @@
 <!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<meta charset="utf-8" />
+  <head>
+	<meta charset="utf-8" />
+	<title>othello</title>
+	<link rel="stylesheet" href="css/view.css" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Chau+Philomene+One:400,400italic|Oleo+Script" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet" type="text/css">
+  </head>
+  <body>
 
-		<title>othello</title>
-		
-		<link rel="stylesheet" href="view.css" type="text/css">
-        <link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One:400,400italic|Oleo+Script' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+	<div id="mask_top"></div>
+	<div id="mask_bottom"></div>
+	<div id="mask_left"></div>
+	<div id="mask_right"></div>
 
-                <script type="text/javascript" src="jquery-1.7.2.js"></script>
-		<script type="text/javascript" src="jquery.easing.1.3.js"></script>
-		<!-- <script src="bgm.js" charset="utf-8"></script> -->
-		<script src="game.js" charset="utf-8"></script>
-        <script src="cpu.js" charset="utf-8"></script>
-	</head>
+    
+	<div id="wrapper">
 
-	<body>
+	  <div id="title">
+		<img id="title_bg" src="title_bg.png" alt="">
+		<img class="button" id="vs_human" src="vs_human.png" alt="">
+		<img class="button" id="vs_cpu" src="vs_cpu.png" alt="">
+	  </div>
 
-		<div id="mask_top"></div>
-		<div id="mask_bottom"></div>
-		<div id="mask_left"></div>
-		<div id="mask_right"></div>
-		
-		<div id="wrapper">
+      
+	  <div id="select">
+		<img id="bg_select" src="bg_select.png" alt="">
+		<img id="message_select" src="message_select.png" alt="">
 
-			<div id="title">
-
-				<img id="title_bg" src="title_bg.png" alt="">
-				<img class="button" id="vs_human" src="vs_human.png" alt="">
-				<img class="button" id="vs_cpu" src="vs_cpu.png" alt="">
-			</div>
-
-			<div id="select">
-				<img id="bg_select" src="bg_select.png" alt="">
-				<img id="message_select" src="message_select.png" alt="">
-
-				<div id="stand_left">
-					<img id="stand_bo" src="stand_bo.png" alt="">
-				</div>
-                <div id="left_label"></div>
-                <img id="left_1p" src="left_1p.png" alt="">
-                <img id="left_you" src="left_you.png" alt="">
-                
-				<div id="stand_right">
-					<img id="stand_bo" src="stand_bo.png" alt="">
-				</div>
-                <div id="right_label"></div>
-                <img id="right_2p" src="right_2p.png" alt="">
-                <img id="right_cpu" src="right_cpu.png" alt="">
-
-                <div id="firsthand_button">
-                  <img src="firsthand_left.png">
-                </div>
-				<img class="button" id="to_battle" src="to_battle.png" alt="">
-
-			</div>
-
-			<div id="board">
-				<img id="bg_battle" src="bg_battle.png" alt="">
-				<table>
-					<tr>
-						<td class="wall"></td><td class="wall">A</td><td class="wall">B</td><td class="wall">C</td><td class="wall">D</td><td class="wall">E</td><td class="wall">F</td><td class="wall">G</td><td class="wall">H</td><td class="wall"></td>
-					</tr>
-					<tr>
-						<td class="wall">1</td><td id="a1" class="end-top end-left"></td><td id="b1" class="end-top"></td><td id="c1" class="end-top"></td><td id="d1" class="end-top"></td><td id="e1" class="end-top"></td><td id="f1" class="end-top"></td><td id="g1" class="end-top"></td><td id="h1" class="end-top end-right"></td><td class="wall">1</td>
-					</tr>
-					<tr>
-						<td class="wall">2</td><td id="a2" class="end-left"></td><td id="b2"></td><td id="c2"></td><td id="d2"></td><td id="e2"></td><td id="f2"></td><td id="g2"></td><td id="h2" class="end-right"></td><td class="wall">2</td>
-					</tr>
-					<tr>
-						<td class="wall">3</td><td id="a3" class="end-left"></td><td id="b3"></td><td id="c3"></td><td id="d3"></td><td id="e3"></td><td id="f3"></td><td id="g3"></td><td id="h3" class="end-right"></td><td class="wall">3</td>
-					</tr>
-					<tr>
-						<td class="wall">4</td><td id="a4" class="end-left"></td><td id="b4"></td><td id="c4"></td><td id="d4"></td><td id="e4"></td><td id="f4"></td><td id="g4"></td><td id="h4" class="end-right"></td><td class="wall">4</td>
-					</tr>
-					<tr>
-						<td class="wall">5</td><td id="a5" class="end-left"></td><td id="b5"></td><td id="c5"></td><td id="d5"></td><td id="e5"></td><td id="f5"></td><td id="g5"></td><td id="h5" class="end-right"></td><td class="wall">5</td>
-					</tr>
-					<tr>
-						<td class="wall">6</td><td id="a6" class="end-left"></td><td id="b6"></td><td id="c6"></td><td id="d6"></td><td id="e6"></td><td id="f6"></td><td id="g6"></td><td id="h6" class="end-right"></td><td class="wall">6</td>
-					</tr>
-					<tr>
-						<td class="wall">7</td><td id="a7" class="end-left"></td><td id="b7"></td><td id="c7"></td><td id="d7"></td><td id="e7"></td><td id="f7"></td><td id="g7"></td><td id="h7" class="end-right"></td><td class="wall">7</td>
-					</tr>
-					<tr>
-						<td class="wall">8</td><td id="a8" class="end-bottom end-left"></td><td id="b8" class="end-bottom"></td><td id="c8" class="end-bottom"></td><td id="d8" class="end-bottom"></td><td id="e8" class="end-bottom"></td><td id="f8" class="end-bottom"></td><td id="g8" class="end-bottom"></td><td id="h8" class="end-bottom end-right"></td><td class="wall">8</td>
-					</tr>
-					<tr>
-						<td class="wall"></td><td class="wall">A</td><td class="wall">B</td><td class="wall">C</td><td class="wall">D</td><td class="wall">E</td><td class="wall">F</td><td class="wall">G</td><td class="wall">H</td><td class="wall"></td>
-					</tr>
-				</table>
-			</div>
-			<!-- board end -->
-
-			<div id="status">
-				<div id="status_left">
-					<img id="status_left_bg" src="status_bg.png" alt="">
-					<img id="status_left_face" src="bo_face.png" alt="">
-                    <div id="color_left"></div>
-                    <span id="player_left"></span>
-                    <span id="score_left">0</span>
-				</div>
-
-				<div id="status_right">
-					<img id="status_right_bg" src="status_bg.png" alt="">
-					<img id="status_right_face" src="bo_face.png" alt="">
-                    <div id="color_right"></div>
-                    <span id="player_right"></span>
-                    <span id="score_right">0</span>
-				</div>
-
-				<img id="gauge_left" src="gauge_back.png" alt="">
-                <img id="gauge_fill_left" src="gauge_fill_red.png" alt="">
-				<img id="gauge_right" src="gauge_back.png" alt="">
-                <img id="gauge_fill_right" src="gauge_fill_red.png" alt="">
-			</div>
-
-			<img id="menu_button" src="menu_button.png" alt="">
-			<div id="menu">
-              <div id="menu_inner">
-                History!
-                <div id="history"></div>
-                <div id="undo" class="button">Undo 1step!</div>
-                <div id="close_menu" class="button">Close Menu</div>
-                <div id="undo_disabled" class="button">Can't Undo</div>
-                
-              </div>
-			</div>
-			
-			<div id="sign">
-				<img id="sign_ready" src="ready.png" alt="">
-				<img id="sign_go" src="go.png" alt="">
-				<img id="sign_ko" src="ko.png" alt="">
-				<img id="sign_draw" src="draw.png" alt="">
-			</div>
-
-            <div id="result">
-              <div id="result_wrapper">
-                <!-- <div id="result_left"></div> -->
-                <!-- <div id="result_right"></div> -->
-                <div id="result_score"></div>
-              </div>
-            </div>
-
+		<div id="stand_left">
+		  <img id="stand_bo" src="stand_bo.png" alt="">
 		</div>
-		<!-- wrapper end -->
-
-
-        <audio>
-          <source src="bgm/title.mp3" type="audio/mp3">
-        </audio>
-
-        <audio>
-          <source src="bgm/se.mp3" type="audio/mp3">
-        </audio>
+        <div id="left_label"></div>
+        <img id="left_1p" src="left_1p.png" alt="">
+        <img id="left_you" src="left_you.png" alt="">
         
+		<div id="stand_right">
+		  <img id="stand_bo" src="stand_bo.png" alt="">
+		</div>
+        <div id="right_label"></div>
+        <img id="right_2p" src="right_2p.png" alt="">
+        <img id="right_cpu" src="right_cpu.png" alt="">
 
-    </body>
+        <div id="firsthand_button">
+          <img src="firsthand_left.png">
+        </div>
+		<img class="button" id="to_battle" src="to_battle.png" alt="">
+	  </div>
+
+      
+	  <div id="board">
+		<img id="bg_battle" src="bg_battle.png" alt="">
+		<table>
+		  <tr>
+			<td class="wall"></td><td class="wall">A</td><td class="wall">B</td><td class="wall">C</td><td class="wall">D</td><td class="wall">E</td><td class="wall">F</td><td class="wall">G</td><td class="wall">H</td><td class="wall"></td>
+		  </tr>
+		  <tr>
+			<td class="wall">1</td><td id="a1" class="end-top end-left"></td><td id="b1" class="end-top"></td><td id="c1" class="end-top"></td><td id="d1" class="end-top"></td><td id="e1" class="end-top"></td><td id="f1" class="end-top"></td><td id="g1" class="end-top"></td><td id="h1" class="end-top end-right"></td><td class="wall">1</td>
+		  </tr>
+		  <tr>
+			<td class="wall">2</td><td id="a2" class="end-left"></td><td id="b2"></td><td id="c2"></td><td id="d2"></td><td id="e2"></td><td id="f2"></td><td id="g2"></td><td id="h2" class="end-right"></td><td class="wall">2</td>
+		  </tr>
+		  <tr>
+			<td class="wall">3</td><td id="a3" class="end-left"></td><td id="b3"></td><td id="c3"></td><td id="d3"></td><td id="e3"></td><td id="f3"></td><td id="g3"></td><td id="h3" class="end-right"></td><td class="wall">3</td>
+		  </tr>
+		  <tr>
+			<td class="wall">4</td><td id="a4" class="end-left"></td><td id="b4"></td><td id="c4"></td><td id="d4"></td><td id="e4"></td><td id="f4"></td><td id="g4"></td><td id="h4" class="end-right"></td><td class="wall">4</td>
+		  </tr>
+		  <tr>
+			<td class="wall">5</td><td id="a5" class="end-left"></td><td id="b5"></td><td id="c5"></td><td id="d5"></td><td id="e5"></td><td id="f5"></td><td id="g5"></td><td id="h5" class="end-right"></td><td class="wall">5</td>
+		  </tr>
+		  <tr>
+			<td class="wall">6</td><td id="a6" class="end-left"></td><td id="b6"></td><td id="c6"></td><td id="d6"></td><td id="e6"></td><td id="f6"></td><td id="g6"></td><td id="h6" class="end-right"></td><td class="wall">6</td>
+		  </tr>
+		  <tr>
+			<td class="wall">7</td><td id="a7" class="end-left"></td><td id="b7"></td><td id="c7"></td><td id="d7"></td><td id="e7"></td><td id="f7"></td><td id="g7"></td><td id="h7" class="end-right"></td><td class="wall">7</td>
+		  </tr>
+		  <tr>
+			<td class="wall">8</td><td id="a8" class="end-bottom end-left"></td><td id="b8" class="end-bottom"></td><td id="c8" class="end-bottom"></td><td id="d8" class="end-bottom"></td><td id="e8" class="end-bottom"></td><td id="f8" class="end-bottom"></td><td id="g8" class="end-bottom"></td><td id="h8" class="end-bottom end-right"></td><td class="wall">8</td>
+		  </tr>
+		  <tr>
+			<td class="wall"></td><td class="wall">A</td><td class="wall">B</td><td class="wall">C</td><td class="wall">D</td><td class="wall">E</td><td class="wall">F</td><td class="wall">G</td><td class="wall">H</td><td class="wall"></td>
+		  </tr>
+		</table>
+	  </div>
+	  <!-- board end -->
+
+      
+	  <div id="status">
+		<div id="status_left">
+		  <img id="status_left_bg" src="status_bg.png" alt="">
+		  <img id="status_left_face" src="bo_face.png" alt="">
+          <div id="color_left"></div>
+          <span id="player_left"></span>
+          <span id="score_left">0</span>
+		</div>
+
+		<div id="status_right">
+		  <img id="status_right_bg" src="status_bg.png" alt="">
+		  <img id="status_right_face" src="bo_face.png" alt="">
+          <div id="color_right"></div>
+          <span id="player_right"></span>
+          <span id="score_right">0</span>
+		</div>
+
+		<img id="gauge_left" src="gauge_back.png" alt="">
+        <img id="gauge_fill_left" src="gauge_fill_red.png" alt="">
+		<img id="gauge_right" src="gauge_back.png" alt="">
+        <img id="gauge_fill_right" src="gauge_fill_red.png" alt="">
+	  </div>
+
+      
+	  <img id="menu_button" src="menu_button.png" alt="">
+	  <div id="menu">
+        <div id="menu_inner">
+          History!
+          <div id="history"></div>
+          <div id="undo" class="button">Undo 1step!</div>
+          <div id="close_menu" class="button">Close Menu</div>
+          <div id="undo_disabled" class="button">Can't Undo</div>
+        </div>
+	  </div>
+
+	  
+	  <div id="sign">
+		<img id="sign_ready" src="ready.png" alt="">
+		<img id="sign_go" src="go.png" alt="">
+		<img id="sign_ko" src="ko.png" alt="">
+		<img id="sign_draw" src="draw.png" alt="">
+	  </div>
+
+      
+      <div id="result">
+        <div id="result_wrapper">
+          <!-- <div id="result_left"></div> -->
+          <!-- <div id="result_right"></div> -->
+          <div id="result_score"></div>
+        </div>
+      </div>
+
+	</div>
+	<!-- wrapper end -->
+
+
+    <audio>
+      <source src="bgm/title.mp3" type="audio/mp3">
+    </audio>
+    <audio>
+      <source src="bgm/se.mp3" type="audio/mp3">
+    </audio>
+
+    
+    <script src="js/jquery-1.7.2.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- <script src="js/bgm.js" charset="utf-8"></script> -->
+	<script src="js/game.js" charset="utf-8"></script>
+    <script src="js/cpu.js" charset="utf-8"></script>
+  </body>
 </html>
